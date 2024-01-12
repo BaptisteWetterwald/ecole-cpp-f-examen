@@ -32,6 +32,9 @@ public:
     int searchAnimalByName(const string& animalName) const;
     void removeAnimalByName(const string& animalName);
     double averageAgeForType(const string& animalType) const;
+
+    void predictTypeWithKNN(const Animal* animal, int k, const string& similarityType) const;
+
 };
 
 #endif //ECOLE_CPP_F_EXAMEN_ZOO_H

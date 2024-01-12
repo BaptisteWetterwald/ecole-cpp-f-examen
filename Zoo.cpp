@@ -7,6 +7,9 @@
 #include "Mammal.h"
 #include "Bird.h"
 #include "Reptile.h"
+#include "KNN.h"
+#include "KNNDouble.h"
+#include "KNNString.h"
 #include <iostream>
 #include <iomanip>
 
@@ -86,4 +89,34 @@ double Zoo::averageAgeForType(const std::string& animalType) const {
     }
 
     return (count > 0) ? (totalAge / count) : 0.0;
+}
+
+void Zoo::predictTypeWithKNN(const Animal *animal, int k, const string &similarityType) const {
+    // check if similarityType is "numerical” or "categorical"
+    // if it is numerical, use KNNDouble
+    // if it is categorical, use KNNString with vectors as color, diet, habitat and sound
+    // use the similarityMeasure method to compute the similarity between the animal and each animal in the zoo
+
+    if (similarityType == "numerical") {
+
+    } else if (similarityType == "categorical") {
+vector<string> colors;
+        vector<string> diets;
+        vector<string> habitats;
+        vector<string> sounds;
+
+        for (const auto& animal : animals) {
+            colors.push_back(animal->getColor());
+            diets.push_back(animal->getDiet());
+            habitats.push_back(animal->getHabitat());
+            sounds.push_back(animal->getSounds());
+        }
+
+        KNNString knn(colors, diets, habitats, sounds);
+        cout << "Predicted type for animal '" << animal->getName() << "': " << knn.predictType(animal, k) << endl;
+    } else {
+        cout << "Unknown similarity type." << endl;
+    }
+
+
 }

@@ -15,4 +15,9 @@ add_executable(exe
         Reptile.h
         Zoo.cpp
         Zoo.h
+        KNN.h
+        KNNDouble.cpp
+        KNNDouble.h
+        KNNString.cpp
+        KNNString.h
 )
