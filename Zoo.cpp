@@ -100,7 +100,7 @@ void Zoo::predictTypeWithKNN(const Animal *animal, int k, const string &similari
     if (similarityType == "numerical") {
 
     } else if (similarityType == "categorical") {
-vector<string> colors;
+        vector<string> colors;
         vector<string> diets;
         vector<string> habitats;
         vector<string> sounds;
@@ -112,8 +112,8 @@ vector<string> colors;
             sounds.push_back(animal->getSounds());
         }
 
-        KNNString knn(colors, diets, habitats, sounds);
-        cout << "Predicted type for animal '" << animal->getName() << "': " << knn.predictType(animal, k) << endl;
+        // lack of time
+
     } else {
         cout << "Unknown similarity type." << endl;
     }
